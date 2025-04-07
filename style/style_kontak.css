@@ -1,0 +1,98 @@
+/* Gaya untuk form */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Semua elemen di pusatkan horizontal */
+    justify-content: center;
+    /* Pusatkan konten secara vertikal */
+    padding: 20px;
+    text-align: center;
+    min-height: 80vh;
+    /* Membuat kontainer tinggi secara proporsional */
+}
+
+.contact-header {
+    font-family: 'Poppins', 'Sans-Serif';
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-form {
+    font-family: 'Poppins', 'Sans-Serif';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Elemen berbaris vertikal */
+    gap: 5px;
+    /* Jarak antar-elemen */
+    text-align: left;
+    /* Teks form rata kiri */
+    width: 100%;
+    /* Agar menyesuaikan kontainer */
+    max-width: 350px;
+    /* Lebar maksimum form */
+    margin: 0 auto;
+    /* Pusatkan form secara horizontal */
+}
+
+.contact-form label {
+    font-family: 'Poppins', 'Sans-Serif';
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    font-family: 'Poppins', 'Sans-Serif';
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+.contact-form button.submit-button {
+    font-family: 'Poppins', 'Sans-Serif';
+    text-decoration: none;
+    display: inline-block;
+    background-color: #008000;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button.submit-button:hover {
+    background-color: #45a049;
+}
+
+.notification {
+    margin: 0 0 20px 0;
+    padding: 10px 10px;
+    border: 1px solid #4CAF50;
+    /* Warna hijau untuk pesan sukses */
+    background-color: #dff0d8;
+    color: #3c763d;
+    font-size: 16px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.notification.error {
+    border-color: #f44336;
+    /* Warna merah untuk pesan error */
+    background-color: #fddede;
+    color: #a94442;
+}

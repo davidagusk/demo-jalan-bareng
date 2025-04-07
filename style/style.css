@@ -1,0 +1,476 @@
+:root {
+    --antiflash-white: #f3f6faff;
+    --isabelline: #ede8e6ff;
+    --antiflash-white-2: #e7e9edff;
+    --black-olive: #2c281dff;
+    --french-gray: #b0bdc5ff;
+    --fern-green: #426f3fff;
+    --platinum: #e1e0deff;
+    --battleship-gray: #90928fff;
+    --french-gray-2: #c3c9d0ff;
+    --white: #fffffeff;
+}
+
+/* Global Styles */
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    background: none;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/background.jpg) center/cover no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+#map {
+    height: calc(100vh - 80px);
+    transition: margin-left 1s ease;
+    position: relative;
+    z-index: 1;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(109, 109, 109, 0.262);
+    z-index: 1000;
+    display: none;
+    /* pointer-events: none; */
+}
+
+h1 {
+    font-weight: 700;
+}
+
+p {
+    text-align: justify;
+}
+
+/* Header */
+header {
+    color: white;
+    position: relative;
+    z-index: 3;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(45, 65, 49, 0.31);
+}
+
+.nav-container.hidden {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #666;
+}
+
+.nav-link.active {
+    font-weight: 700;
+    color: black;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 65%;
+    max-width: 360px;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    font-size: small;
+    box-shadow: 0px 0px 4px rgba(45, 65, 49, 0.31);
+}
+
+/*Beranda*/
+.foto {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 75vh;
+    gap: 20px;
+}
+
+.left-side {
+    flex: 1;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.highlight-text {
+    background-color: #ffc107;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.button-container {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.button {
+    text-decoration: none;
+    display: inline-block;
+    background-color: #008000;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #006400;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -500px;
+    width: 400px;
+    height: 100vh;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ECECE7;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.77);
+    padding: 20px;
+    transition: left 1s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/*Sidebar Content*/
+#sidebar.open {
+    left: 0;
+}
+
+.header-row {
+    display: flex;
+}
+
+.header-row h3 {
+    font-size: 25px;
+    font-weight: bold;
+    /*top right bottom left*/
+    margin: 50px 0px 10px;
+}
+
+#sidebar p {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d0cdc895;
+}
+
+#sidebar img {
+    width: 90%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#sidebar a {
+    color: black;
+    text-decoration: none;
+}
+
+#sidebar a:hover {
+    text-decoration: underline;
+}
+
+#closeSidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Poppins', 'Sans-Serif';
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#closeSidebar:hover {
+    background-color: black;
+    color: white;
+}
+
+/*Polygon*/
+
+.popup-content {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    text-align: center;
+    font-size: 14px;
+}
+
+.polygon-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding: 3px 7px;
+    background-color: rgba(0, 0, 0, 0.480);
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px #0000004d;
+}
+
+.polygon-hidden {
+    display: none;
+}
+
+/*Filter Button*/
+
+.leaflet-control.filter-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+#filterButton {
+    width: 100%;
+    background-color: #584E4F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: medium;
+}
+
+#filterButton:hover {
+    background-color: #42403e;
+    color: white;
+}
+
+/* Style for the leaflet control layers */
+.leaflet-control-layers {
+    position: relative;
+    /* top: 0; */
+    /* Reset to default top position */
+    z-index: 0;
+}
+
+#filterMenu {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 15px 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.795);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#filterMenu h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #74A789;
+    padding-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#filterMenu label {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+}
+
+#departmentFilter,
+#buildingFilter {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #74A789;
+    border-radius: 30px;
+    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+#departmentFilter:focus,
+#buildingFilter:focus {
+    border-color: #74A789;
+    box-shadow: 0 0 5px #74A789;
+}
+
+/*Searchbar*/
+#search-container {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background-color: white;
+    padding: 5px;
+}
+
+#searchInput {
+    font-family: 'Poppins', sans-serif;
+    width: 130px;
+    padding: 7px;
+    font-size: 14px;
+    border-color: rgba(0, 0, 0, 0.197);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 880px) {
+    .container {
+        flex-direction: column;
+        padding: 5px 20px 10px;
+        height: auto;
+    }
+
+    .left-side {
+        text-align: center;
+    }
+
+    .foto {
+        width: 80%;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo-section {
+        justify-content: center;
+    }
+
+    .logo-img {
+        width: 55%;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #search-container {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #searchInput {
+        width: auto;
+        text-align: center;
+        padding: 7px;
+        font-size: 14px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: -500px;
+        width: 350px;
+    }
+}
